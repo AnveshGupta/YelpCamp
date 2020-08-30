@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+<div class="container d-flex justify-content-center">
+    <div class="card p-1 text-center" style="width:70%">
+        <img class="img-fluid card-img-top border-bottom-0" style="height:30rem" src="<%= campground.src %>" >
+        <div class="card-body p-2">
+            <h5 class="card-title my-1"><%= campground.name%></h5>
+            <h6><%= campground.des%></h6>
+            <a href="/campgrounds" class="btn btn-danger btn-md">Go Back</a>
+            <h4>comments</h4>
+            <% campground.comment.forEach(function(comment){ %>
+            <h6><strong><%=comment.author %></strong></h6>
+            <div><%= comment.text %></div>
+            <% });%>
+            <a href= <%= "/campgrounds/" + campground._id + "/comment" %> class="btn btn-danger btn-md"> Add comment </a>
+        </div>
+        </div>
+</div>
+<%- include("partials/footer") %>
