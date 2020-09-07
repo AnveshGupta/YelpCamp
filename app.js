@@ -5,6 +5,8 @@ var exp = require("express");
     passport = require("passport");
     localstrategy = require("passport-local");
     passportlocalmongoose = require("passport-local-mongoose");
+    mo = require("method-override"),
+
 
     comment = require("./models/comments");
     ng = require("./models/campground");  
@@ -18,7 +20,7 @@ var AuthRoutes      = require("./routes/Auth");
     commentRoutes    = require("./routes/comment"),
     campgroundRoutes = require("./routes/campground"),
     
-
+app.use(mo("_method"));
 db.set('useUnifiedTopology',true);
 db.connect("mongodb://localhost:27017/campground_auth",{useNewUrlParser: true});
 
@@ -43,19 +45,18 @@ app.use(passport.session());
 
 app.use(function(req,res,next){
     res.locals.currentuser = req.user;
+    console.log(res.locals.currentuser);
     next();
 });
-
-app.use(AuthRoutes);
-app.use(campgroundRoutes);
-app.use(commentRoutes);
-
-
 
 app.get("/",function(req,res){
     res.render("landing");
 });
 
+app.use(AuthRoutes);
+app.use("/campgrounds",campgroundRoutes);
+app.use(commentRoutes);
+
 app.listen(3000,function(req,res){
     console.log("server started");
-})
+});

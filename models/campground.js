@@ -9,6 +9,7 @@ campground = new db.Schema({
             type: db.Schema.Types.ObjectId,
             ref: "comments"
         }
-    ]
+    ],
+    userid: String
 });
 module.exports = db.model("campground",campground);

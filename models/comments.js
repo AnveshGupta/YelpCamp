@@ -2,6 +2,7 @@ db =  require("mongoose");
 
 comment = new db.Schema({
     author: String,
-    text:String,
+    authorid : String,
+    text : String
 });
 module.exports = db.model("comments",comment);

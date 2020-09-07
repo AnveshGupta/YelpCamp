@@ -1,4 +1,3 @@
-var express = require("express");
 var comments = require("../models/comments");
 var campground = require("../models/campground");
 var user = require("../models/users");
@@ -14,5 +13,13 @@ middleware.isloggedin = function(req,res,next){
         next();
     }
 };
+// middleware.Check_comment_Owner = function(req,res,next){
+//     if(!req.isAuthenticated()){
+//         res.redirect("/login");
+//     }
+//     else{
+//         if()
+//     }
+// }
 
 module.exports = middleware;

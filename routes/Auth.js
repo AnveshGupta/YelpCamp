@@ -3,7 +3,7 @@ var router =  express.Router();
 var passport  = require("passport");
 var users = require("../models/users");
 
-router.get("/login/",function(req,res){
+router.get("/login",function(req,res){
     res.render("login");
 });
 

@@ -6,6 +6,7 @@
             <h5 class="card-title my-1"><%= campground.name%></h5>
             <h6><%= campground.des%></h6>
             <a href="/campgrounds" class="btn btn-danger btn-md">Go Back</a>
+            <a href= <%="/campgrounds/" + campground._id + "/update" %> class = "btn btn-success btn-md" >Update</a>
             <h4>comments</h4>
             <% campground.comment.forEach(function(comment){ %>
             <h6><strong><%=comment.author %></strong></h6>

@@ -26,27 +26,27 @@ function seedDb(){ campground.deleteMany({},function(err,resp){
     }
     else{
         console.log("data removed");
-        data.forEach(element => {
-            campground.create(element,function(err,camp){
-                if(err){
-                    console.log(err);
-                }
-                else{
-                    comment.create({
-                            text: "This place is great, but I wish there was internet",
-                            author: "Homer"
-                        }, function(err, comnt){
-                            if(err){
-                                console.log(err)
-                            }
-                            else{
-                            camp.comment.push(comnt);
-                            camp.save();}
-                        }
-                    )
-                }
-            });
-        });
+        // data.forEach(element => {
+        //     campground.create(element,function(err,camp){
+        //         if(err){
+        //             console.log(err);
+        //         }
+        //         else{
+        //             comment.create({
+        //                     text: "This place is great, but I wish there was internet",
+        //                     author: "Homer"
+        //                 }, function(err, comnt){
+        //                     if(err){
+        //                         console.log(err)
+        //                     }
+        //                     else{
+        //                     camp.comment.push(comnt);
+        //                     camp.save();}
+        //                 }
+        //             )
+        //         }
+        //     });
+        // });
     }
 });
 };
