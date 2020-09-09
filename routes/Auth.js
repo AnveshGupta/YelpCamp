@@ -30,6 +30,7 @@ router.post("/signup",function(req,res){
 
 router.get("/signout",function(req,res){
     req.logout();
+    req.flash("success","Logged you out");
     res.redirect("/login");
 });
 

@@ -10,7 +10,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">YelpCamp</a>
+                <a class="navbar-brand" href="/campgrounds">YelpCamp</a>
             </div>
                 <ul class="navbar-nav navbar-right">
                 <%if(!currentuser){%>
@@ -31,4 +31,15 @@
                 </ul>
         </div>
     </nav>
-    
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger mt-1 p-2" role="alert">
+            <%= error %>
+        </div>
+        <% } %>
+        <% if(success && success.length >0 ) { %>
+        <div class="alert alert-success mt-1 p-2" role="alert">
+            <%= success %>
+          </div>
+         <% } %>
+    </div>
